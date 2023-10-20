@@ -1,0 +1,18 @@
+.center {
+    text-align: center;
+}
+form {
+    display: block;
+}
+#searchForm {
+    margin-bottom: 20px;
+}
+
+#movieInfo {
+    display: none;
+    margin-top: 20px;
+}
+
+#poster {
+    width: 200px;
+}
