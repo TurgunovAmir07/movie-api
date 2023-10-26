@@ -117,6 +117,7 @@ themeContainer.addEventListener("click", function () {
     themeContainer.style.border = '1px'
     themeContainer.style.borderStyle = 'solid'
     themeContainer.style.borderColor = 'white'
+    localStorage.setItem('theme', 'dark')
   } else {
     theme.setAttribute("src", "./img/free-icon-sun-1857296.png");
     body.style.backgroundColor = 'white'
@@ -126,5 +127,33 @@ themeContainer.addEventListener("click", function () {
     themeContainer.style.border = '1px'
     themeContainer.style.borderStyle = 'solid'
     themeContainer.style.borderColor = 'black'
+    localStorage.setItem('theme', 'light')
   }
 });
+
+// функция сохранения в localstorage темы и проверки на ее наличие 
+window.onload = function() {
+  let savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    theme.setAttribute("src", "./img/moon.png");
+    body.style.backgroundColor = 'black';
+    body.style.color = 'yellow';
+    movieInput.style.backgroundColor = 'yellow';
+    poster.style.border = '2px';
+    poster.style.borderStyle = 'solid';
+    poster.style.borderColor = 'white';
+    themeContainer.style.backgroundColor = '#222';
+    themeContainer.style.border = '1px';
+    themeContainer.style.borderStyle = 'solid';
+    themeContainer.style.borderColor = 'white';
+  } else {
+    theme.setAttribute("src", "./img/free-icon-sun-1857296.png");
+    body.style.backgroundColor = 'white';
+    body.style.color = 'black';
+    movieInput.style.backgroundColor = 'white';
+    themeContainer.style.backgroundColor = 'white';
+    themeContainer.style.border = '1px';
+    themeContainer.style.borderStyle = 'solid';
+    themeContainer.style.borderColor = 'black';
+  }
+};
