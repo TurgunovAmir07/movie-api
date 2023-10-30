@@ -74,7 +74,7 @@ function addToFavorites() {
   };
 
   favoriteMovies.push(favoriteMovie);
-
+  localStorage.setItem('addToFavourites', JSON.stringify(favoriteMovies));
   alert("Фильм добавлен в избранное!");
 }
 
@@ -85,9 +85,20 @@ function removeFromFavorites() {
   favoriteMovies = favoriteMovies.filter(function (movie) {
     return movie.title !== movieTitle;
   });
-
+  localStorage.setItem('addToFavourites', JSON.stringify(favoriteMovies));
   alert("Фильм удален из избранного!");
 }
+
+
+
+window.onloadFavourites = function() {
+  let savedFavourites = localStorage.getItem('addToFavourites');
+  if (savedFavourites) {
+    favoriteMovies = JSON.parse(savedFavourites);
+  } else {
+    favoriteMovies = [];
+  }
+};
 
 
 // чтобы увидеть фильмы добавленные в избранное вызовите массив favoriteMovies в консоль
